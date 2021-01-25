@@ -20,7 +20,7 @@
 
 acquire_rat_jar () {
 
-  URL="http://repo1.maven.org/maven2/org/apache/rat/apache-rat/${RAT_VERSION}/apache-rat-${RAT_VERSION}.jar"
+  URL="https://repo1.maven.org/maven2/org/apache/rat/apache-rat/${RAT_VERSION}/apache-rat-${RAT_VERSION}.jar"
 
   JAR="$rat_jar"
 
@@ -70,9 +70,6 @@ mkdir -p ${TMP_DIR}/lib
     echo "Download failed. Obtain the rat jar manually and place it at $rat_jar"
     exit 1
 }
-
-# This is the target of a symlink in superset/assets/docs - and rat exclude doesn't cope with the symlink target doesn't exist
-mkdir -p docs/_build/html/
 
 echo "Running license checks. This can take a while."
 echo "$FWDIR"/.rat-excludes
